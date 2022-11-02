@@ -104,11 +104,7 @@ public class ExampleController {
 
     @PostMapping("login")
     public String login(UserVO userVO){
-        if(userVO.getId().equals("admin")){
-            return "/ex/admin";
-        }else{
-            return "/ex/user";
-        }
+        return userVO.getId().equals("admin") ?  "/ex/admin" : "/ex/user";
     }
 
     @GetMapping("work")
@@ -118,7 +114,7 @@ public class ExampleController {
 
     @PostMapping("work")
     public String work(WorkerVO workerVO){
-        if(workerVO.getWorkTime() > )
+        return "";
     }
 
 
