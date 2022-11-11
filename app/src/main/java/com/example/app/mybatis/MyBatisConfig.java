@@ -30,7 +30,7 @@ public class MyBatisConfig {
     }
 
     @Bean
-    public SqlSessionFactory sqlSessionFactory() throws IOException { // 외부에서 설정을 가져와야 하므로 파일 입출력 exception
+    public SqlSessionFactory sqlSessionFactory() throws IOException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource());
         sqlSessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath*:/mapper/*.xml"));
@@ -45,6 +45,7 @@ public class MyBatisConfig {
         return null;
     }
 }
+
 
 
 

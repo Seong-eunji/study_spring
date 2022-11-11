@@ -19,7 +19,7 @@ public class BoardControllerTest {
     @Autowired
     private WebApplicationContext webApplicationContext;
 
-    //    브라우저에서 URL을 요청한 것과 같은 환경을 구성해준다.
+//    브라우저에서 URL을 요청한 것과 같은 환경을 구성해준다.
     private MockMvc mockMvc;
 
     @BeforeEach

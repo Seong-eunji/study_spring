@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @Slf4j
@@ -48,6 +49,23 @@ public class ExampleController {
         log.info("ex07.................");
         log.info("memberVO:" + memberVO);
         log.info("gender:" + gender);
+    }
+
+    @GetMapping("ex08")
+    public void ex08(@RequestParam("data") List<String> datas){ // 화면에서 data라는 이름으로 넘어온 건 모두 datas에 담아줘라
+        log.info(datas.toString());                             // 원래 name은 중복되면 안되지만
+                                                                // name이 중복되어 보내는 경우는 배열이나 리스트로 받을 수 있음
+                                                                // 화면 : localhost:10002/ex/ex08?data=한동석&data=홍길동&data=이순신
+                                                                // 출력 : [한동석, 홍길동, 이순신]
+    }
+
+    @GetMapping("ex09")
+    public void ex09(MemberVO memberVO){ // 일반 Wrapper타입이 아닌 개발자가 지정한 타입(VO)을 제네릭에서 사용할 경우에는
+         log.info()               // 파라미터 안에서 바로 리스트로 받을 수 없기 때문에 VO안에서 List를 선언해주고
+                        // 그 필드에 접근하여 넣어주도록 지정해주어야함
+                        // members[0].name=한동석 ('members[0].name'까지가 키값)
+                        // members[0].age=20
+
     }
 
 //    [실습 1]
