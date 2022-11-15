@@ -2,6 +2,7 @@
 * /board/reply.html
 * */
 
+// reply에 관련된 모든 함수를 묶은 모듈
 let replyService = (function(){
     function add(reply, callback, error){
         $.ajax({
