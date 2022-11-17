@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Entity
 @Getter @Setter @ToString
 @Table(name = "TBL_SUPER_CAR")
-/*@NoArgsConstructor(access = AccessLevel.PROTECTED)*/
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class SuperCar {
     @Id @GeneratedValue
     @Column(name = "SUPER_CAR_ID")

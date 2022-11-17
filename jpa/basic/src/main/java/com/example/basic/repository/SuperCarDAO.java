@@ -72,5 +72,20 @@ public class SuperCarDAO {
                 .getResultList();
     }
 
+//    페이징
+    public List<SuperCar> findAllPaging(int offset, int limit){
+        String q = "select s from SuperCar s order by s.superCarId desc";
+        return entityManager.createQuery(q, SuperCar.class)
+                .setFirstResult(offset) //0부터 시작
+                .setMaxResults(limit)
+                .getResultList();
+    }
+
+//    수정 (벌크 연산), 영속성 컨텍스트를 무시하고 SQL 반영
+    public int bulkUpdate(String superCarReleaseDate){
+        String q = "update SuperCar s set s.superCarPrice = s.superCarPrice * 1.1 where function('to_char', s.superCarReleaseDate, 'yyyyMMdd') = :superCarReleaseDate";
+        return entityManager.createQuery(q).setParameter("superCarReleaseDate", superCarReleaseDate).executeUpdate();
+    }
+
 
 }

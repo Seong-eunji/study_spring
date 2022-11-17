@@ -1,11 +1,13 @@
 package com.example.basic.domain.entity;
 
 import com.example.basic.type.MemberType;
+import com.example.basic.type.SuperCarBrand;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Getter @Setter @ToString
@@ -26,4 +28,11 @@ public class Member {
     @Column(name = "MEMBER_TYPE")
     private MemberType memberType;
 
+    public void create(String memberName, String memberEmail, String memberPassword, int memberAge, MemberType memberType) {
+        this.memberType = memberType;
+        this.memberName = memberName;
+        this.memberEmail = memberEmail;
+        this.memberPassword = memberPassword;
+        this.memberAge = memberAge;
+    }
 }
