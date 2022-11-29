@@ -11,6 +11,6 @@ import java.util.List;
 public interface CarOwnerRepository extends JpaRepository<CarOwner, Long> {
     public List<CarOwner> findByAddress_CarOwnerZipcode(@Param("carOwnerZipcode") String carOwnerZipcode);
 
-    @Query("select c from CarOwner c where c.address.carOwnerZipcode = :carOwnerZipcode")
+    @Query("select c from SuperCarOwner c where c.address.carOwnerZipcode = :carOwnerZipcode")
     public List<CarOwner> findByCarOwnerZipcode(@Param("carOwnerZipcode") String carOwnerZipcode);
 }

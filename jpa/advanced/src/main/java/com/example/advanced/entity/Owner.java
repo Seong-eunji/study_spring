@@ -16,6 +16,7 @@ public class Owner {
     private String ownerName;
     @Column(unique = true)
     private String ownerPhone;
+    private Integer ownerAge;
 
 //    다대일 양방향 관계
 //    양방향에서는 연관관계의 주인을 정해야 한다.
